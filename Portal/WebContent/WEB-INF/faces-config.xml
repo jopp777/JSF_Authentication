@@ -6,5 +6,48 @@
     xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
     http://java.sun.com/xml/ns/javaee/web-facesconfig_2_1.xsd"
     version="2.1">
+	<managed-bean>
+		<description>Contains the authenticated user data</description>
+		<managed-bean-name>user</managed-bean-name>
+		<managed-bean-class>de.jopp.jsf.portal.model.User</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<navigation-rule>
+		<display-name>jsp/Login</display-name>
+		<from-view-id>/jsp/Login.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>success</from-outcome>
+			<to-view-id>/jsp/WelcomePage.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>jsp/Login</display-name>
+		<from-view-id>/jsp/Login.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>failed</from-outcome>
+			<to-view-id>/jsp/FailedLogin.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>jsp/FailedLogin</display-name>
+		<from-view-id>/jsp/FailedLogin.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>login</from-outcome>
+			<to-view-id>/jsp/Login.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>jsp/WelcomePage</display-name>
+		<from-view-id>/jsp/WelcomePage.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>exit</from-outcome>
+			<to-view-id>/jsp/Login.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<validator>
+		<display-name>de.jopp.jsf.portal.validators.LoginValidator</display-name>
+		<validator-id>de.jopp.jsf.portal.validators.LoginValidator</validator-id>
+		<validator-class>de.jopp.jsf.portal.validators.LoginValidator</validator-class>
+	</validator>
 
 </faces-config>
