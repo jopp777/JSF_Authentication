@@ -26,7 +26,8 @@
 			<h:panelGrid columns="2" style="margin: 0 auto;">
 				<h:commandButton action="#{user.login}" value="#{msg.login}">
 				</h:commandButton>
-				<h:commandButton immediate="true" action="#{language.changeLang}" value="#{msg.language}">
+				<h:commandButton immediate="false" 
+					action="#{language.changeLang}" value="#{msg.language}">
 				</h:commandButton>
 			</h:panelGrid>
 			<h:messages layout="table"></h:messages>
