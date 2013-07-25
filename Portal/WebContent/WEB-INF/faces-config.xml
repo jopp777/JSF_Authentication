@@ -12,6 +12,11 @@
 		<managed-bean-class>de.jopp.jsf.portal.model.User</managed-bean-class>
 		<managed-bean-scope>session</managed-bean-scope>
 	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>language</managed-bean-name>
+		<managed-bean-class>de.jopp.jsf.portal.resources.Language</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
 	<navigation-rule>
 		<display-name>jsp/Login</display-name>
 		<from-view-id>/jsp/Login.jsp</from-view-id>
@@ -42,6 +47,15 @@
 		<navigation-case>
 			<from-outcome>exit</from-outcome>
 			<to-view-id>/jsp/Login.jsp</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>jsp/Login</display-name>
+		<from-view-id>/jsp/Login.jsp</from-view-id>
+		<navigation-case>
+			<from-outcome>language</from-outcome>
+			<to-view-id>/jsp/Login.jsp</to-view-id>
+			<redirect />
 		</navigation-case>
 	</navigation-rule>
 	<validator>
