@@ -130,7 +130,7 @@ body{
 	}	
 #login div.submit{background:none;margin:1em 25px;text-align:left;}	
 #login div.submit label{float:none;display:inline;font-size:11px;}	
-#login button{
+#login .commandbutton{
 	border:0;
 	padding:0 30px;
 	height:30px;
@@ -180,32 +180,37 @@ body{
 	<f:view>
 			<f:loadBundle basename="de.jopp.jsf.portal.resources.messages" var="msg"/>
 			
-			<h:outputFormat rendered="#{user.loggedIn}" value="#{msg.loggeduser}">
-				<f:param value="#{user.username}"></f:param>
-			</h:outputFormat>
-			<h:form id="login">
-				<h1>Log in to your account!</h1>
-    			<p class="register">Not a member? <a href="#">Register here!</a></p>
+			<h:form id="login" > 
+
+    <h1 align="center">Log in to your account!</h1>
+    <p class="register">Not a member? <a href="#">Register here!</a></p>
     
-			<h:panelGrid columns="2" style="margin: 0 auto; margin-top: 100px;">
-				<h:outputLabel value="#{msg.user}"></h:outputLabel>
-				<h:inputText id="login_username" styleClass="field required" value="#{user.username}">
-					<f:validator validatorId="de.jopp.jsf.portal.validators.LoginValidator"/>
-				</h:inputText>
-				<h:outputLabel value="#{msg.password}"></h:outputLabel>
-				<h:inputSecret id="login_password" styleClass="field required" value="#{user.password}"></h:inputSecret>
-			</h:panelGrid>
-			<h:panelGrid columns="2" style="margin: 0 auto;">
-				<h:column>
-					<h:commandButton action="#{user.login}" value="#{msg.login}">
+    <div>
+    	<h:outputLabel value="#{msg.user}"></h:outputLabel>
+		<h:inputText id="login_username" styleClass="field required" value="#{user.username}">
+			<f:validator validatorId="de.jopp.jsf.portal.validators.LoginValidator"/>
+		</h:inputText>
+    </div>			
+
+    <div>
+    	<h:outputLabel value="#{msg.password}"></h:outputLabel>
+		<h:inputSecret id="login_password" styleClass="field required" value="#{user.password}"></h:inputSecret>
+    </div>			
+    
+    <p class="forgot"><a href="#">Forgot your password?</a></p>
+    			
+    <div class="submit">
+    	<h:commandButton styleClass="commandbutton" action="#{user.login}" value="#{msg.login}">
 					</h:commandButton>
-				</h:column>
-				<h:commandButton immediate="true" 
-					action="#{language.changeLang}" value="#{msg.language}">
-				</h:commandButton>
-			</h:panelGrid>
-			<h:messages layout="table"></h:messages>
-			</h:form>
+        <label>
+        	<input type="checkbox" name="remember" id="login_remember" value="yes" />
+            Remember my login on this computer
+        </label>   
+    </div>
+    
+    <p class="back"><a href="#">Some link...</a></p>
+  
+</h:form>	
 			
 		</f:view>
 </body>

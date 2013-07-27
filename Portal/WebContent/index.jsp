@@ -13,7 +13,7 @@
 </head>
 <body>
 Loading...
-<jsp:forward page="faces/jsp/Login.jsp" />
+<jsp:forward page="faces/jsp/Login2.jsp" />
 </body>
 </html>
 </jsp:root>
